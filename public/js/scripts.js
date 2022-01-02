@@ -12,6 +12,8 @@ function addTable(trName) {
 }
 
 function formatTable(table) {
+    table.getElementsByTagName("span")[0].textContent = "0,00";
+
     const inputs = table.getElementsByTagName("input").length;
 
     for (let index = 0; index < inputs; index++) {

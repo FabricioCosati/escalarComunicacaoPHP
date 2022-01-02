@@ -20,12 +20,27 @@
             <nav class="navbar">
                 <div class="navbar-container" id="navbar">
                     <ul class="navbar-nav">
+                        @guest
                         <li class="nav-item">
                             <a href="/login" class="nav-link">Login</a>
                         </li>
                         <li class="nav-item">
                             <a href="/register" class="nav-link">Registre-se</a>
                         </li>
+                        @endguest @auth
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a
+                                    href="/logout"
+                                    class="nav-link"
+                                    onclick="event.preventDefault(); 
+                                        this.closest('form').submit();"
+                                    >Logout</a
+                                >
+                            </form>
+                        </li>
+                        @endauth
                     </ul>
                 </div>
             </nav>

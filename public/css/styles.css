@@ -170,9 +170,9 @@ tbody tr:nth-child(even) {
 
 /* Inputs */
 
-input,
-select,
-span {
+section input,
+section select,
+section span {
     background-color: transparent;
     border: 0;
     background-color: white;
@@ -188,15 +188,16 @@ span {
     box-sizing: border-box;
 }
 
-input {
+section input {
     width: 90%;
 }
 
-span {
+section span {
+    text-align: left;
     width: 100%;
 }
 
-select {
+section select {
     background-image: linear-gradient(45deg, transparent 50%, blue 50%),
         linear-gradient(135deg, blue 50%, transparent 50%),
         linear-gradient(to right, skyblue, skyblue);
@@ -285,4 +286,14 @@ select {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+/* Div Error */
+
+.div-error {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
 }

@@ -17,3 +17,7 @@ use App\Http\Controllers\SpreadsheetController;
 
 Route::get("/", [SpreadsheetController::class, "index"]);
 Route::post("/", [SpreadsheetController::class, "post"]);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return redirect('/');
+})->name('dashboard');

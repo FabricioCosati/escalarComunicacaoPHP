@@ -1,6 +1,7 @@
 @extends("layouts.main") @section("title", "Escalar Comunicação")
 @section("content")
 
+@auth
 <form action="/" method="POST" enctype="multipart/form-data">
     @csrf
     <section class="section">
@@ -364,5 +365,11 @@
         <button type="submit" class="submit-form">Salvar Dados</button>
     </div>
 </form>
+@endauth
+@guest
+<div class="div-error">
+    <p>Por favor, registre-se ou faça o login para acessar as tabelas!</p>
+</div>
+@endguest
 
 @endsection
