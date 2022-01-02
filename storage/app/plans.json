@@ -1,0 +1,28 @@
+{
+    "default-plans": [
+        {
+            "id": 1,
+            "plan": 0,
+            "unitary_price": 39.9,
+            "name": "Plano Bronze"
+        },
+        {
+            "id": 2,
+            "plan": 1,
+            "unitary_price": 49.9,
+            "name": "Plano Prata"
+        },
+        {
+            "id": 3,
+            "plan": 2,
+            "unitary_price": 59.9,
+            "name": "Plano Ouro"
+        },
+        {
+            "id": 4,
+            "plan": 3,
+            "unitary_price": 69.9,
+            "name": "Plano Diamante"
+        }
+    ]
+}

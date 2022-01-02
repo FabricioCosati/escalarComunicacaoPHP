@@ -31,7 +31,6 @@
                                 <input
                                     type="text"
                                     name="quantity_tv[]"
-                                    id="quantity"
                                     class="quantity"
                                     value="{{ $tv['quantity'] }}"
                                 />
@@ -66,7 +65,6 @@
                                 <input
                                     type="text"
                                     name="unitary_price_tv[]"
-                                    id="unitary_price"
                                     class="unitary_price"
                                     value="{{number_format($tv['unitary_price'], 2, ",", ".")}}"
                                     onkeydown="add2decimals(event)"
@@ -78,7 +76,6 @@
                             <div>
                                 <span
                                     name="product_total_price_tv[]"
-                                    id="product_total_price"
                                     class="product_total_price"
                                 >
                                 {{number_format($tv['product_total_price'], 2, ",", ".")}}
@@ -96,7 +93,6 @@
                                 <input
                                     type="number"
                                     name="quantity_tv[]"
-                                    id="quantity"
                                     class="quantity"
                                     value="0"
                                 />
@@ -131,7 +127,7 @@
                                 <input
                                     type="text"
                                     name="unitary_price_tv[]"
-                                    id="unitary_price"
+                                    
                                     class="unitary_price"
                                     onkeydown="add2decimals(event)"
                                     value="0,00"
@@ -143,7 +139,6 @@
                             <div>
                                 <span
                                     name="product_total_price_tv[]"
-                                    id="product_total_price"
                                     class="product_total_price"
                                 >
                                 0,00
@@ -204,7 +199,6 @@
                                 <input
                                     type="text"
                                     name="quantity_player[]"
-                                    id="quantity"
                                     class="quantity"
                                     value="{{ $player['quantity'] }}"
                                 />
@@ -226,7 +220,7 @@
                                 <input
                                     type="text"
                                     name="unitary_price_player[]"
-                                    id="unitary_price"
+                                    
                                     class="unitary_price"
                                     value="{{number_format($player['unitary_price'], 2, ",", ".")}}"
                                     onkeydown="add2decimals(event)"
@@ -238,7 +232,6 @@
                             <div>
                                 <span
                                     name="product_total_price_player[]"
-                                    id="product_total_price"
                                     class="product_total_price" 
                                 >
                                 {{number_format($player['product_total_price'], 2, ",", ".")}}
@@ -256,7 +249,6 @@
                                 <input
                                     type="number"
                                     name="quantity_player[]"
-                                    id="quantity"
                                     class="quantity"
                                     value="0"
                                 />
@@ -278,7 +270,7 @@
                                 <input
                                     type="text"
                                     name="unitary_price_player[]"
-                                    id="unitary_price"
+                                    
                                     class="unitary_price"
                                     onkeydown="add2decimals(event)"
                                     value="0,00"
@@ -290,7 +282,6 @@
                             <div>
                                 <span
                                     name="product_total_price_player[]"
-                                    id="product_total_price"
                                     class="product_total_price" 
                                 >
                                 0,00
@@ -353,6 +344,82 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="table-container" id="table-container-plan">
+            <div class="table-container-title">
+                <h3>Planos</h3>
+            </div>
+
+            <table class="table-container-content">
+                <thead>
+                    <tr>
+                        <th>Quant.</th>
+                        <th>Planos</th>
+                        <th>Valor Unitário</th>
+                        <th>Valor total</th>
+                    </tr>
+                </thead>
+
+                <tbody id="plan-row-body">
+                    <tr class="plan-row" id="plan-row-0">
+                        <td>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="quantity_plan"
+                                    class="quantity"
+                                    value="{{ $plan->quantity }}"
+                                />
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                <select name="plan" id="plan" class="plan" onchange="changePrice(this)">
+                                    @foreach ($default_plans as $default_plan)
+                                    <option value="{{$default_plan['id'] -1}}" {{ ($plan->plan) == ($default_plan['id'] - 1) ? 'selected' : '' }}>{{$default_plan['name']}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                @foreach ($default_plans as $default_plan)
+                                <span
+                                    name="{{ ($plan->plan) == ($default_plan['id'] - 1) ? 'unitary_price_plan' : '' }}"
+                                    class="unitary_price plan_unitary_price_{{$default_plan['id']}} plan_unitary_price"
+                                    style="display: {{ ($plan->plan) == ($default_plan['id'] - 1) ? 'inline-block' : 'none' }};"
+                                >
+                                    {{number_format($default_plan['unitary_price'], 2, ",", ".")}}
+                                </span>
+                                @endforeach
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                <span
+                                    name="plan_total_price"
+                                    id="plan_total_price"
+                                    class="plan_total_price" 
+                                >
+                                {{number_format($plan->plan_total_price, 2, ",", ".")}}
+                                </span>
+                            </div>
+                        </td>
+                      
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="full-price">
+                <h4>Total</h4>
+                <p>R$ {{number_format($players_full_price, 2, ",", ".")}}</p>
+            </div>
         </div>
     </section>
 

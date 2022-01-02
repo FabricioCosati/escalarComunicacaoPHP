@@ -52,3 +52,21 @@ function add2decimals(e) {
         e.target.value = value;
     }, 1);
 }
+
+function changePrice(input) {
+    const spans = document.querySelectorAll(`.plan_unitary_price`);
+
+    spans.forEach((element) => {
+        element.style.display = "none";
+        element.setAttribute("name", "");
+    });
+
+    document.getElementsByClassName(
+        `plan_unitary_price_${Number(input.value) + 1}`
+    )[0].style.display = "inline-block";
+    document
+        .getElementsByClassName(
+            `plan_unitary_price_${Number(input.value) + 1}`
+        )[0]
+        .setAttribute("name", "unitary_price_plan");
+}

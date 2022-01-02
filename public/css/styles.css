@@ -63,6 +63,11 @@ ul li:first-child {
 header ul li a {
     color: #fff;
     font-size: 1.2rem;
+    transition: filter 0.2s;
+}
+
+header ul li a:hover {
+    filter: brightness(0.7);
 }
 
 /* Table */
@@ -95,6 +100,10 @@ header ul li a {
     background-color: #ea6053;
 }
 
+#table-container-plan .table-container-title {
+    background-color: #babd0d;
+}
+
 .table-container-content {
     background-color: #eee;
     border-spacing: 0 0;
@@ -118,8 +127,21 @@ thead {
     background-color: #c42b1d;
 }
 
+#table-container-plan thead {
+    background-color: #8b8d01;
+}
+
 thead th {
     padding: 0.5rem 0;
+}
+
+thead tr th:nth-child(1) {
+    width: 150px;
+}
+
+thead tr th:nth-child(3),
+thead tr th:nth-child(4) {
+    width: 300px;
 }
 
 tbody:before {
@@ -188,13 +210,14 @@ section span {
     box-sizing: border-box;
 }
 
-section input {
+section input,
+section span,
+section select {
     width: 90%;
 }
 
 section span {
     text-align: left;
-    width: 100%;
 }
 
 section select {
