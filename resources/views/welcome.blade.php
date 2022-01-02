@@ -75,13 +75,13 @@
 
                         <td>
                             <div>
-                                <input
-                                    type="text"
+                                <span
                                     name="product_total_price_tv[]"
                                     id="product_total_price"
                                     class="product_total_price"
-                                    value="{{number_format($tv['product_total_price'], 2, ",", ".")}}"
-                                />
+                                >
+                                {{number_format($tv['product_total_price'], 2, ",", ".")}}
+                                </span>
                             </div>
                         </td>
                         <td>
@@ -97,6 +97,7 @@
                                     name="quantity_tv[]"
                                     id="quantity"
                                     class="quantity"
+                                    value="0"
                                 />
                             </div>
                         </td>
@@ -131,18 +132,21 @@
                                     name="unitary_price_tv[]"
                                     id="unitary_price"
                                     class="unitary_price"
+                                    onkeydown="add2decimals(event)"
+                                    value="0,00"
                                 />
                             </div>
                         </td>
 
                         <td>
                             <div>
-                                <input
-                                    type="text"
+                                <span
                                     name="product_total_price_tv[]"
                                     id="product_total_price"
                                     class="product_total_price"
-                                />
+                                >
+                                0,00
+                                </span>
                             </div>
                         </td>
 
@@ -231,14 +235,13 @@
 
                         <td>
                             <div>
-                                <input
-                                    type="text"
+                                <span
                                     name="product_total_price_player[]"
                                     id="product_total_price"
-                                    class="product_total_price"
-                                    value="{{number_format($player['product_total_price'], 2, ",", ".")}}"
-                                    
-                                />
+                                    class="product_total_price" 
+                                >
+                                {{number_format($player['product_total_price'], 2, ",", ".")}}
+                                </span>
                             </div>
                         </td>
                         <td>
@@ -254,6 +257,7 @@
                                     name="quantity_player[]"
                                     id="quantity"
                                     class="quantity"
+                                    value="0"
                                 />
                             </div>
                         </td>
@@ -261,9 +265,9 @@
                         <td>
                             <div>
                                 <select name="player[]" id="player" class="player">
-                                    <option value="0" {{ ($player["player"]) == 0 ? 'selected' : '' }}>Player Alphasignage</option>
-                                    <option value="1" {{ ($player["player"]) == 1 ? 'selected' : '' }}>Player Alphasignage Secundário</option>
-                                    <option value="2" {{ ($player["player"]) == 2 ? 'selected' : '' }}>TV Box</option>
+                                    <option value="0" >Player Alphasignage</option>
+                                    <option value="1" >Player Alphasignage Secundário</option>
+                                    <option value="2" >TV Box</option>
                                 </select>
                             </div>
                         </td>
@@ -275,18 +279,21 @@
                                     name="unitary_price_player[]"
                                     id="unitary_price"
                                     class="unitary_price"
+                                    onkeydown="add2decimals(event)"
+                                    value="0,00"
                                 />
                             </div>
                         </td>
 
                         <td>
                             <div>
-                                <input
-                                    type="text"
+                                <span
                                     name="product_total_price_player[]"
                                     id="product_total_price"
-                                    class="product_total_price"
-                                />
+                                    class="product_total_price" 
+                                >
+                                0,00
+                                </span>
                             </div>
                         </td>
 
@@ -338,7 +345,7 @@
                                     id="labor_price"
                                     class="labor_price"
                                     value="{{number_format($labor_price, 2, ",", ".")}}"
-                                    onkeydown="add3decimals(event)"
+                                    onkeydown="add2decimals(event)"
                                 />
                             </div>
                         </td>
@@ -349,6 +356,7 @@
     </section>
 
     <div class="total-price">
+        <h4>Valor Total</h4>
         <p>R$ {{number_format($total_price, 2, ",", ".")}}</p>
     </div>
 
